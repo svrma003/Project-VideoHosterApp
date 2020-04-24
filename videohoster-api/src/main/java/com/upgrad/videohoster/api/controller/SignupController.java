@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.ZonedDateTime;
 import java.util.UUID;
 
+@RestController
 @RequestMapping("/")
 public class SignupController {
 
@@ -33,8 +35,10 @@ public class SignupController {
         userEntity.setMobilePhone(signupUserRequest.getMobileNumber());
         userEntity.setSalt("1234abc");
         userEntity.setRole("nonadmin");
+        userEntity.setLastLoginAt(ZonedDateTime.now());
 
         final UserEntity createdUserEntity = signupBusinessService.signup(userEntity);
         SignupUserResponse userResponse = new SignupUserResponse().id(createdUserEntity.getUuid()).status("USER SUCCESSFULLY REGISTERED");
+        return new ResponseEntity<SignupUserResponse>(userResponse, HttpStatus.CREATED);
     }
 }

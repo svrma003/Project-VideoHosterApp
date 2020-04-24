@@ -16,19 +16,8 @@ public class UserDao {
     private EntityManager entityManager;
 
     public UserEntity createUser(UserEntity userEntity) {
+
         entityManager.persist(userEntity);
+        return userEntity;
     }
-
-    public UserEntity getUserByEmail(final String email) {
-    }
-
-    public UserAuthTokenEntity createAuthToken(final UserAuthTokenEntity userAuthTokenEntity) {
-        entityManager.persist(userAuthTokenEntity);
-    }
-
-    public void updateUser(final UserEntity updatedUserEntity) {
-        entityManager.merge(updatedUserEntity);
-    }
-
-
 }
