@@ -16,6 +16,8 @@ public class UserDao {
     private EntityManager entityManager;
 
     public UserEntity createUser(UserEntity userEntity) {
-        
+
+        entityManager.persist(userEntity);
+        return userEntity;
     }
 }
