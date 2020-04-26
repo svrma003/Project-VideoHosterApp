@@ -54,6 +54,7 @@ public class UserEntity implements Serializable {
     private String mobilePhone;
 
     @Column(name = "LAST_LOGIN_AT")
+    @NotNull
     private ZonedDateTime lastLoginAt;
 
     @Column(name = "SALT")
@@ -62,9 +63,12 @@ public class UserEntity implements Serializable {
     private String salt;
 
 
+
+
     public long getId() {
         return id;
     }
+
 
     public void setId(long id) {
         this.id = id;
@@ -156,4 +160,5 @@ public class UserEntity implements Serializable {
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
+
 }
