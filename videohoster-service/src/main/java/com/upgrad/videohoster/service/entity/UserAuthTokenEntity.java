@@ -43,6 +43,26 @@ public class UserAuthTokenEntity implements Serializable {
     @Column(name = "LOGOUT_AT")
     private ZonedDateTime logoutAt;
 
+    @Version
+    @Column(name="VERSION" , length=19 , nullable = false)
+    private Long version;
+
+
+    @Column(name="CREATED_BY")
+    @NotNull
+    private String createdBy;
+
+
+    @Column(name="CREATED_AT")
+    @NotNull
+    private ZonedDateTime createdAt;
+
+    @Column(name="MODIFIED_BY")
+    private String modifiedBy;
+
+    @Column(name="MODIFIED_AT")
+    private ZonedDateTime modifiedAt;
+
 
     public long getId() {
         return id;
@@ -90,6 +110,46 @@ public class UserAuthTokenEntity implements Serializable {
 
     public void setLogoutAt(ZonedDateTime logoutAt) {
         this.logoutAt = logoutAt;
+    }
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public ZonedDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(ZonedDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getModifiedBy() {
+        return modifiedBy;
+    }
+
+    public void setModifiedBy(String modifiedBy) {
+        this.modifiedBy = modifiedBy;
+    }
+
+    public ZonedDateTime getModifiedAt() {
+        return modifiedAt;
+    }
+
+    public void setModifiedAt(ZonedDateTime modifiedAt) {
+        this.modifiedAt = modifiedAt;
     }
 
     @Override
