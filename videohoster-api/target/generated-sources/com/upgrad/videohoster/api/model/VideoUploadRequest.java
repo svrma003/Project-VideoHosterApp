@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
  * VideoUploadRequest
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2020-04-16T17:58:15.974+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2020-04-29T13:35:46.067+05:30")
 
 public class VideoUploadRequest   {
   @JsonProperty("video")
