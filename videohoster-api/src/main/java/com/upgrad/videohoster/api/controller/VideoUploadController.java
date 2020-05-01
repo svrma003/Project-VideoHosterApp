@@ -19,12 +19,14 @@ import java.io.UnsupportedEncodingException;
 import java.time.ZonedDateTime;
 import java.util.UUID;
 
+@RestController
 @RequestMapping("/")
 public class VideoUploadController {
 
     @Autowired
     private VideoUploadService videoUploadService;
 
+    //video details are uploaded in table [videos] with proper authorisation provided
     @RequestMapping(method = RequestMethod.POST, path = "/videoupload", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<VideoUploadResponse> videoupload(final VideoUploadRequest videoUploadRequest, @RequestHeader("authorization") final String authorization) throws UploadFailedException, UnsupportedEncodingException {
         final VideoEntity videoEntity = new VideoEntity();
@@ -39,5 +41,6 @@ public class VideoUploadController {
 
         final VideoEntity createdvideoEntity = videoUploadService.upload(videoEntity, authorization);
         VideoUploadResponse videoUploadResponse = new VideoUploadResponse().id(createdvideoEntity.getUuid()).status("Video SUCCESSFULLY uploaded");
+        return new ResponseEntity<VideoUploadResponse>(videoUploadResponse, HttpStatus.CREATED);
     }
 }

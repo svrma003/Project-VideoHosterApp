@@ -18,9 +18,10 @@ public class SignupBusinessService {
 
     @Transactional(propagation = Propagation.REQUIRED)
     public UserEntity signup(UserEntity userEntity) {
-        String[] encryptedText = passwordCryptographyProvider.encrypt(userEntity.getPassword());
-        userEntity.setSalt(encryptedText[0]);
+        String[] encryptedText = passwordCryptographyProvider.encrypt(userEntity.getPassword());        //password is stored in encrypted form in database
+        userEntity.setSalt(encryptedText[0]);       //salt hashed along with the password to make the encryption of password strong. Prevents attack from using rainbow tables
         userEntity.setPassword(encryptedText[1]);
+        return userDao.createUser(userEntity);
 
     }
 }

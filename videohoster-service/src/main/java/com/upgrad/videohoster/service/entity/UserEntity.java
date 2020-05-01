@@ -10,6 +10,11 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+//this class is being used to map the database table[table_name = users] with an object//
 
 @Entity
 @Table(name = "USERS", schema = "videohoster")
@@ -54,6 +59,7 @@ public class UserEntity implements Serializable {
     private String mobilePhone;
 
     @Column(name = "LAST_LOGIN_AT")
+    @NotNull
     private ZonedDateTime lastLoginAt;
 
     @Column(name = "SALT")
@@ -62,9 +68,12 @@ public class UserEntity implements Serializable {
     private String salt;
 
 
+
+
     public long getId() {
         return id;
     }
+
 
     public void setId(long id) {
         this.id = id;
@@ -156,4 +165,5 @@ public class UserEntity implements Serializable {
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
+
 }

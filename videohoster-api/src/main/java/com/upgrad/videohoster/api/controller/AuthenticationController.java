@@ -18,12 +18,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Base64;
 import java.util.UUID;
 
-
+@RestController
 @RequestMapping("/")
 public class AuthenticationController {
     @Autowired
     private AuthenticationService authenticationService;
 
+    //records access_token in table[user_auth_tokens] for the user whose email_id:password is encoded in base64 format and entered int the field
+    //and checked against the information in database in table[users] entered during signup process
     @RequestMapping(method = RequestMethod.POST, path = "/auth/login", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<AuthorizedUserResponse> login(@RequestHeader("authorization") final String authorization) throws AuthenticationFailedException {
         byte[] decode = Base64.getDecoder().decode(authorization);
@@ -39,5 +41,6 @@ public class AuthenticationController {
                 .lastLoginTime(user.getLastLoginAt()).role(user.getRole());
         HttpHeaders headers = new HttpHeaders();
         headers.add("access-token", userAuthToken.getAccessToken());
+        return new ResponseEntity<AuthorizedUserResponse>(authorizedUserResponse,headers, HttpStatus.OK);
     }
 }

@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Import;
 @SpringBootApplication
 @Import(ServiceConfiguration.class)
 public class VideoHosterApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(VideoHosterApplication.class,args);
+    public static void main(String[] x) {
+        SpringApplication.run(VideoHosterApplication.class,x);      //main class to run the application
     }
 }

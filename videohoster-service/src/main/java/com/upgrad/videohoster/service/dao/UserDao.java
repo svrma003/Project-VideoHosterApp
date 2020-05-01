@@ -17,7 +17,8 @@ public class UserDao {
 
     public UserEntity createUser(UserEntity userEntity) {
 
-        entityManager.persist(userEntity);
+        entityManager.persist(userEntity);      // adds the entity object to the persistent context
         return userEntity;
     }
+
 }
