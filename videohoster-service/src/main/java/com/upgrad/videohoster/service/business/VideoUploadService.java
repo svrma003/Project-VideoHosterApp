@@ -16,7 +16,12 @@ public class VideoUploadService {
     private VideoDao videoDao;
     @Transactional(propagation = Propagation.REQUIRED)
     public VideoEntity upload(VideoEntity videoEntity, final String authorizationToken) throws UploadFailedException {
+        UserAuthTokenEntity userAuthTokenEntity = videoDao.getUserAuthToken(authorizationToken);
+        if(userAuthTokenEntity != null) {
 
-        return videoDao.createVideo(videoEntity);
+            videoEntity.setUser_id(userAuthTokenEntity.getUser());      //foreign key concept is used here to set user_id from users table in videos table accordingly to the user who is uploading the video
+            return videoDao.createVideo(videoEntity);
+        }
+        throw new UploadFailedException("VUF-001" , "Video upload failed");
     }
 }

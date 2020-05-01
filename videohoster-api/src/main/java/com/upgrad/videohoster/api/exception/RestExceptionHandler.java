@@ -26,7 +26,7 @@ public class RestExceptionHandler {
         );
     }
 
-    @ExceptionHandler(VideoNotFoundException.class)
+   @ExceptionHandler(VideoNotFoundException.class)
     public ResponseEntity<ErrorResponse> videonotfoundException(VideoNotFoundException exc, WebRequest request) {
         return new ResponseEntity<ErrorResponse>(
                 new ErrorResponse().code(exc.getCode()).message(exc.getErrorMessage()), HttpStatus.NOT_FOUND

@@ -1,18 +1,13 @@
 package com.upgrad.videohoster.service.common;
 
-
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.text.MessageFormat;
 
 public class UnexpectedException extends RuntimeException {
-
     private static final long serialVersionUID = 2737472949025937415L;
-
     private final ErrorCode errorCode;
-
     private Throwable cause;
-
     private final Object[] parameters;
 
     public UnexpectedException(final ErrorCode errorCode, final Object... parameters) {
@@ -51,5 +46,4 @@ public class UnexpectedException extends RuntimeException {
     public final void printStackTrace(final PrintWriter writer) {
         super.printStackTrace(writer);
     }
-
 }

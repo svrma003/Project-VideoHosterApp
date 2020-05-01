@@ -17,18 +17,10 @@ public class UserDao {
 
     public UserEntity createUser(UserEntity userEntity) {
 
-        entityManager.persist(userEntity);
+        entityManager.persist(userEntity);      // adds the entity object to the persistent context
         return userEntity;
     }
 
-    public UserEntity getUserByEmail(final String email) {
-        try {
-            return entityManager.createNamedQuery("userByEmail", UserEntity.class).setParameter("email", email)
-                    .getSingleResult();
-        } catch (NoResultException nre) {
-            return null;
-        }
-    }
 
     public UserAuthTokenEntity createAuthToken(final UserAuthTokenEntity userAuthTokenEntity) {
         entityManager.persist(userAuthTokenEntity);
@@ -38,5 +30,6 @@ public class UserDao {
     public void updateUser(final UserEntity updatedUserEntity) {
         entityManager.merge(updatedUserEntity);
     }
+
 
 }

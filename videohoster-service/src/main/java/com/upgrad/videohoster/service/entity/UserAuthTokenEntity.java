@@ -44,8 +44,6 @@ public class UserAuthTokenEntity implements Serializable {
     private ZonedDateTime logoutAt;
 
 
-
-
     public long getId() {
         return id;
     }
@@ -93,9 +91,6 @@ public class UserAuthTokenEntity implements Serializable {
     public void setLogoutAt(ZonedDateTime logoutAt) {
         this.logoutAt = logoutAt;
     }
-
-
-
 
     @Override
     public boolean equals(Object obj) {

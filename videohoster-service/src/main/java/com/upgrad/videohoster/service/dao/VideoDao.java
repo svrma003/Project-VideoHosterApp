@@ -19,5 +19,7 @@ public class VideoDao {
         return videoEntity;
     }
 
+    public VideoEntity updateVideo(final VideoEntity videoEntity) {
+        return entityManager.merge(videoEntity);
+    }
 }
-
