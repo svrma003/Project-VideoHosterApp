@@ -31,6 +31,8 @@ public class AuthenticationController {
         String decodedText = new String(decode);
         String[] decodedArray = decodedText.split(":");
 
+
+
         UserAuthTokenEntity userAuthToken = authenticationService.authenticate(decodedArray[0], decodedArray[1]);
 
         UserEntity user = userAuthToken.getUser();
@@ -41,6 +43,6 @@ public class AuthenticationController {
                 .lastLoginTime(user.getLastLoginAt()).role(user.getRole());
         HttpHeaders headers = new HttpHeaders();
         headers.add("access-token", userAuthToken.getAccessToken());
-        return new ResponseEntity<AuthorizedUserResponse>(authorizedUserResponse,headers, HttpStatus.OK);
+        return new ResponseEntity<AuthorizedUserResponse>(authorizedUserResponse, headers, HttpStatus.OK);
     }
 }
