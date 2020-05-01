@@ -32,6 +32,7 @@ public class UserEntity implements Serializable {
     @Size(max = 64)
     private String uuid;
 
+
     @Column(name = "ROLE")
     private String role;
 
@@ -42,6 +43,10 @@ public class UserEntity implements Serializable {
 
     @Column(name = "PASSWORD")
     private String password;
+
+
+
+
 
     @Column(name = "FIRST_NAME")
     @NotNull
@@ -66,9 +71,6 @@ public class UserEntity implements Serializable {
     @NotNull
     @Size(max = 200)
     private String salt;
-
-
-
 
     public long getId() {
         return id;
@@ -111,6 +113,7 @@ public class UserEntity implements Serializable {
         this.password = password;
     }
 
+
     public String getFirstName() {
         return firstName;
     }
@@ -150,6 +153,9 @@ public class UserEntity implements Serializable {
     public void setSalt(String salt) {
         this.salt = salt;
     }
+
+
+
 
     @Override
     public boolean equals(Object obj) {
