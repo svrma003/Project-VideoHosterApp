@@ -1,4 +1,4 @@
-package com.upgrad.videohoster.service.business;
+/*package com.upgrad.videohoster.service.business;
 
 
 import com.upgrad.videohoster.service.dao.VideoDao;
@@ -30,3 +30,4 @@ public class AdminService {
         String role = userAuthTokenEntity.getUser().getRole();
     }
 }
+*/
