@@ -1,4 +1,4 @@
-/*package com.upgrad.videohoster.api.controller;
+package com.upgrad.videohoster.api.controller;
 
 
 import com.upgrad.videohoster.api.model.UpdateVideoRequest;
@@ -51,4 +51,3 @@ public class AdminController {
     }
 
 }
-*/

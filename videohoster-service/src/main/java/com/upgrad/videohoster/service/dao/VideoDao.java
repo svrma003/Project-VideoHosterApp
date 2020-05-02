@@ -19,6 +19,33 @@ public class VideoDao {
         return videoEntity;
     }
 
+    public UserAuthTokenEntity getUserAuthToken(final String accessToken) {
+        try{
+            return entityManager.createNamedQuery("userAuthTokenByAccessToken", UserAuthTokenEntity.class).setParameter("accessToken", accessToken).getSingleResult();
+        }
+        catch(NoResultException nre){
+            return null;
+        }
+    }
+
+    public VideoEntity getVideo(final String videoUuid) {
+        try {
+            //works on query defined in VideoEntity class
+            return entityManager.createNamedQuery("VideoEntityByUuid", VideoEntity.class).setParameter("uuid", videoUuid).getSingleResult();
+        }catch(NoResultException nre){
+            return null;
+        }
+    }
+
+    public VideoEntity getVideoById(final long Id) {
+        try{
+            //works on query defined in VideoEntity class
+            return entityManager.createNamedQuery("VideoEntityByid", VideoEntity.class).setParameter("id", Id).getSingleResult();
+        }catch (NoResultException nre){
+            return null;
+        }
+    }
+
     public VideoEntity updateVideo(final VideoEntity videoEntity) {
         return entityManager.merge(videoEntity);
     }
