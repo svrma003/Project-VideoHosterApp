@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
  * VideoDetailsResponse
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2020-05-03T02:38:29.613+05:30")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2020-05-03T12:54:16.653+05:30")
 
 public class VideoDetailsResponse   {
   @JsonProperty("video")
